@@ -39,30 +39,29 @@ void blink(int onSeconds, int offSeconds = 0) {
   } 
 }
 
-void dash(int seconds) {
-
+void dash() {
+  blink(1500);
 }
 
-void dot(int seconds) {
-  
+void dot() {
+  blink(400);
 }
 
 void sos() {
-
   for( int a = 0; a < 3; a = a + 1 ) {
-    blink(250);
+    dot();
    }
   
   off(1000);
   
   for( int a = 0; a < 3; a = a + 1 ) {
-    blink(2000);
+    dash();
    }
 
   off(1000);
 
   for( int a = 0; a < 3; a = a + 1 ) {
-    blink(250);
+    dot();
   }
 
   off(1000);

@@ -33,25 +33,36 @@ void blink(int seconds) {
   off(seconds);
 }
 
-void sos() {
 
-  for( int a = 0; a < 3; a = a + 1 ) {
-    blink(250);
-   }
-  
-  off(1000);
-  
-  for( int a = 0; a < 3; a = a + 1 ) {
-    blink(2000);
-   }
+void dash() {
+  blink(1500);
+}
 
-  off(1000);
+void dot() {
+  blink(400);
+}
 
+
+void tripleDot() {
   for( int a = 0; a < 3; a = a + 1 ) {
-    blink(250);
+    dot();
   }
-
   off(1000);
+}
+
+void tripleDash() {
+  for( int a = 0; a < 3; a = a + 1 ) {
+    dash();
+  }
+  off(1000);
+}
+
+void sos() {
+  tripleDot();
+  tripleDash();
+  tripleDot();
+
+  off(3000);
 }
 
 void loop() {
