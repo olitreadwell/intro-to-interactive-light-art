@@ -8,7 +8,7 @@
 // Teensy++ 2.0 has the LED on pin 6
 // Teensy 3.x / Teensy LC have the LED on pin 13
 const int ledPin = 13;
-const int bunttonPin = 1;
+const int buttonPin = 1;
 const int potPin = 23;
 
 // the setup() method runs once, when the sketch starts
@@ -16,7 +16,7 @@ const int potPin = 23;
 void setup() {
   // initialize the digital pin as an output.
   pinMode(ledPin, OUTPUT);
-  pinMode(bunttonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);
 }
 
 void off(int seconds) {
@@ -44,7 +44,7 @@ void loop() {
   int buttonState;
   int potValue;
 
-  buttonState = digitalRead(bunttonPin);
+  buttonState = digitalRead(buttonPin);
   potValue = analogRead(potPin);
 
   if (buttonState == HIGH)
