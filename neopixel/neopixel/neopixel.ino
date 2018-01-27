@@ -18,7 +18,7 @@ void loop() {
   if (buttonState == LOW)
   {
     for (int ledIndex = 0; ledIndex < 3; ledIndex++) {
-      setRandom(ledIndex, 100);
+      setRandom(ledIndex);
     }
     setAllRandom();
   } else {

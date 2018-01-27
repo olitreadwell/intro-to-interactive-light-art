@@ -8,16 +8,18 @@ const int numLeds = 17;
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, ledPin, NEO_RGB + NEO_KHZ800);
 
-void setAllColor(const char * color, int delayTimeInMilliseconds = 250) {
-  const char * red = "red";
+void setAllColor(const char * color, int delayTimeInMilliseconds = 250) {  
   const char * green = "green";
   const char * blue = "blue";
 
-  if (strcmp (color, red) != 0) {
-    for (int ledIndex = 0; ledIndex < 3; ledIndex++) {
-      strip.setPixelColor(ledIndex, strip.Color(255, 0, 0));
-    }
-  }
+  // TODO : LOL
+  // This doesn't seem to be working right now. :$
+  // const char * red = "red";
+  // if (strcmp (color, red) != 0) {
+  //   for (int ledIndex = 0; ledIndex < 3; ledIndex++) {
+  //     strip.setPixelColor(ledIndex, strip.Color(255, 0, 0));
+  //   }
+  // }
 
   if (strcmp (color, green) != 0) {
     for (int ledIndex = 0; ledIndex < 3; ledIndex++) {
@@ -34,25 +36,32 @@ void setAllColor(const char * color, int delayTimeInMilliseconds = 250) {
   strip.show();
   delay(delayTimeInMilliseconds);
 }
-
 void setRandom(const int ledIndex, int delayTimeInMilliseconds = 250) {
-  const int redValue = rand() % 255 + 1;
-  const int greenValue = rand() % 255 + 1;
-  const int blueValue = rand() % 255 + 1;
-  
-  strip.setPixelColor(ledIndex, strip.Color(redValue, greenValue, blueValue));
+  strip.setPixelColor(
+    ledIndex, 
+    strip.Color(
+      rand() % 255 + 1, // red
+      rand() % 255 + 1, // green
+      rand() % 255 + 1  // blue
+    )
+  );
+
   strip.show();
   delay(delayTimeInMilliseconds);
 }
 
 void setAllRandom(int delayTimeInMilliseconds = 250) {
-  const int redValue = rand() % 255 + 1;
-  const int greenValue = rand() % 255 + 1;
-  const int blueValue = rand() % 255 + 1;
-
   for (int ledIndex = 0; ledIndex < 3; ledIndex++) {
-    strip.setPixelColor(ledIndex, strip.Color(redValue, greenValue, blueValue));
+    strip.setPixelColor(
+      ledIndex, 
+      strip.Color(
+        rand() % 255 + 1, // red
+        rand() % 255 + 1, // green
+        rand() % 255 + 1  // blue
+      )
+    );
   }
+
   strip.show();
   delay(delayTimeInMilliseconds);
 }
