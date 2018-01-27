@@ -44,7 +44,7 @@ void loop() {
 
   buttonState = digitalRead(buttonPin);
 
-  if (buttonState == HIGH)
+  if (buttonState == LOW)
   {
     blink(1000);
   }
